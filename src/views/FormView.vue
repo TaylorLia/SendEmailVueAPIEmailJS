@@ -3,7 +3,6 @@
 </style>
 
 <template>
-
 <div class="center-container">
   <form ref="form" @submit.prevent="sendEmail" class="center-form">
     <div class="form-group">
@@ -11,7 +10,7 @@
         <label for="nome">Nome</label>
       </li>
       <li>
-        <input class="input-text" name="name" required minlength="2" :maxlength="50" />
+        <input class="input-text" placeholder="Nome" name="name" required minlength="2" :maxlength="50" />
       </li>
     </div>
 
@@ -20,7 +19,7 @@
         <label for="email">Email</label>
       </li>
       <li>
-        <input class="input-text" name="mail" type="email" minlength="7" required :maxlength="80" />
+        <input class="input-text" name="mail" placeholder="email@email.com" type="email" minlength="7" required :maxlength="80" />
       </li>
     </div>
 
@@ -29,7 +28,7 @@
         <label for="telefone">Telefone</label>
       </li>
       <li>
-        <input class="input-text" name="phone" pattern="[0-9]*" minlength="8" required :maxlength="15" />
+        <input  class="input-text" name="phone" ref="phoneInput" pattern="[0-9]*" placeholder="(00) 00000-0000" minlength="8" required :maxlength="15" />
       </li>
     </div>
 
@@ -65,9 +64,14 @@
 </template>
 
 <script>
+import Inputmask from 'inputmask';
 import emailjs from '@emailjs/browser';
 
 export default {
+  mounted() {
+    // Adicione a máscara ao campo de telefone
+    Inputmask({ mask: '(99) 99999-9999' }).mask(this.$refs.phoneInput);
+  },
   data() {
     return {
       emailSent: false,
