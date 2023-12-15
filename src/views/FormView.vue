@@ -28,7 +28,7 @@
         <label for="telefone">Telefone</label>
       </li>
       <li>
-        <input  class="input-text" name="phone" ref="phoneInput" pattern="[0-9]*" placeholder="(00) 00000-0000" minlength="8" required :maxlength="15" />
+        <input  class="input-text" name="phone" ref="phoneInput" placeholder="(00) 00000-0000" minlength="8" required :maxlength="15" />
       </li>
     </div>
 
